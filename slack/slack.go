@@ -19,10 +19,7 @@ func (s SlackHandler) Send(web WebHook) error {
 	if s.webhook == "" {
 		return fmt.Errorf("webhook is not invalid")
 	}
-	bData, err := json.Marshal(WebHook{
-		Text: "hoge",
-		Channel: "#segre-private-memo",
-	})
+	bData, err := json.Marshal(web)
 	if err != nil {
 		return err
 	}
